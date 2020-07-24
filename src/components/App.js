@@ -5,6 +5,8 @@ import theme from "./ui/Theme";
 import Header from "../components/ui/Header";
 import Footer from "../components/ui/Footer";
 import LandingPage from "./LandingPage";
+import Services from "./Services";
+import CustomSoftware from "./CustomSoftware";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -30,11 +32,27 @@ function App() {
               />
             )}
           />
-          <Route exact path="/services" component={() => <div>Services</div>} />
+          <Route
+            exact
+            path="/services"
+            component={(props) => (
+              <Services
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
+          />
           <Route
             exact
             path="/customsoftware"
-            component={() => <div>Custom Software</div>}
+            component={(props) => (
+              <CustomSoftware
+                {...props}
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
           />
           <Route
             exact
