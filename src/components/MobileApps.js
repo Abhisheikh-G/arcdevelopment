@@ -12,7 +12,13 @@ import {
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
+import swiss from "../assets/swissKnife.svg";
+import access from "../assets/extendAccess.svg";
+import engagement from "../assets/increaseEngagement.svg";
+
 import integrationAnimation from "../animations/integrationAnimation/data.json";
+
+import CallToAction from "./ui/CallToAction";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -139,21 +145,39 @@ export default function MobileApps(props) {
         </Hidden>
       </Grid>
       {/*--- Second Section ----*/}
-      <Grid item container direction="row" className={classes.rowContainer}>
+      <Grid
+        item
+        container
+        direction={matchesSM ? "column" : "row"}
+        style={{ marginTop: "15em", marginBottom: "15em" }}
+        className={classes.rowContainer}
+      >
         <Grid item container direction="column" md>
           <Grid item>
-            <Typography variant="h4" gutterBottom>
+            <Typography
+              align={matchesSM ? "center" : undefined}
+              variant="h4"
+              gutterBottom
+            >
               Integration
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesSM ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore,
               reiciendis vero nihil facilis blanditiis temporibus nisi ab minus
               harum itaque, aut magni quasi molestias fuga beatae omnis nesciunt
               officia voluptates!
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesSM ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
               veritatis corporis accusantium nemo tempore hic quod voluptatibus
               magnam delectus doloribus animi provident minus, debitis suscipit
@@ -162,22 +186,35 @@ export default function MobileApps(props) {
           </Grid>
         </Grid>
         <Grid item md>
-          <Lottie options={defaultOptions} />
+          <Lottie options={defaultOptions} style={{ maxWidth: "20em" }} />
         </Grid>
         <Grid item container direction="column" md>
           <Grid item>
-            <Typography align="right" variant="h4" gutterBottom>
+            <Typography
+              align={matchesSM ? "center" : "right"}
+              align="right"
+              variant="h4"
+              gutterBottom
+            >
               Simultaneous Platform Support
             </Typography>
           </Grid>
           <Grid item>
-            <Typography align="right" variant="body1" paragraph>
+            <Typography
+              align={matchesSM ? "center" : "right"}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore,
               reiciendis vero nihil facilis blanditiis temporibus nisi ab minus
               harum itaque, aut magni quasi molestias fuga beatae omnis nesciunt
               officia voluptates!
             </Typography>
-            <Typography align="right" variant="body1" paragraph>
+            <Typography
+              align={matchesSM ? "center" : "right"}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
               veritatis corporis accusantium nemo tempore hic quod voluptatibus
               magnam delectus doloribus animi provident minus, debitis suscipit
@@ -185,6 +222,61 @@ export default function MobileApps(props) {
             </Typography>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction={matchesMD ? "column" : "row"}
+        style={{ marginBottom: "15em" }}
+        className={classes.rowContainer}
+      >
+        <Grid item container direction="column" alignItems="center" md>
+          <Grid item>
+            <Typography align="center" variant="h4" gutterBottom>
+              Extend Functionality
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img src={swiss} alt="swiss army knife" />
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          style={{
+            marginTop: matchesMD ? "10em" : "0",
+            marginBottom: matchesMD ? "10em" : "0",
+          }}
+          direction="column"
+          alignItems="center"
+          md
+        >
+          <Grid item>
+            <Typography align="center" variant="h4" gutterBottom>
+              Extend Access
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img
+              src={access}
+              alt="a tear-one-off sign"
+              style={{ maxWidth: matchesXS ? "20em" : "28em" }}
+            />
+          </Grid>
+        </Grid>
+        <Grid item container direction="column" alignItems="center" md>
+          <Grid item>
+            <Typography align="center" variant="h4" gutterBottom>
+              Increase Engagement
+            </Typography>
+          </Grid>
+          <Grid item>
+            <img src={engagement} alt="app with notification" />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <CallToAction setValue={props.setValue} />
       </Grid>
     </Grid>
   );
